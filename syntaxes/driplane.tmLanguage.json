@@ -1,0 +1,189 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "driplane",
+	"patterns": [
+		{
+			"include": "#strings-double"
+		},
+		{
+			"include": "#strings-single"
+		},
+		{
+			"include": "#imports"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#rulenames"
+		},
+		{
+			"include": "#rulename-calls"
+		},
+		{
+			"include": "#filters"
+		},
+		{
+			"include": "#feeders"
+		}
+	],
+	"repository": {
+		"strings-double": {
+			"name": "string.quoted.double.driplane",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.driplane",
+					"match": "\\\\."
+				}
+			]
+		},
+		"strings-single": {
+			"name": "string.quoted.single.driplane",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.driplane",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.driplane",
+				"match":  "(#).*$\n?",
+				"captures": {
+					"1": {
+						"name": "punctuation.definition.comment.driplane"
+					}
+				}
+			}]
+		},
+		"imports": {
+			"patterns": [{
+				"name": "meta.preprocessor.include.driplane",
+				"match":  "^(#import).*$\n?",
+				"captures": {
+					"1": {
+						"name": "punctuation.definition.comment.driplane"
+					}
+				}
+			}]
+		},
+		"rulename-calls": {
+			"patterns": [{
+				"name": "support.type.driplane",
+				"match":  "(@)([a-zA-Z0-9-_]+)",
+				"captures": {
+					"1": {
+						"name": "punctuation.definition.comment.driplane"
+					},
+					"2": {
+						"name": "entity.name.section.driplane"
+					}
+				}
+			}]
+		},
+		"rulenames": {
+			"patterns": [{
+				"name": "support.type.driplane",
+				"match":  "^([a-zA-Z0-9-_]+)\\s+(=>)",
+				"captures": {
+					"1": {
+						"name": "entity.name.section.driplane"
+					},
+					"2": {
+						"name": "punctuation.definition.comment.driplane"
+					}
+				}
+			}]
+		},
+		"params": {
+			"patterns": [{
+				"name": "variable.name.driplane",
+				"match": "[a-zA-Z0-9-_]+="
+			}]
+		},
+		"parameters": {
+			"name": "variable.name.driplane",
+			"patterns": [
+				{
+					"match": "(,)|([a-zA-Z][a-zA-Z0-9-_]+=])",
+					"captures": {
+						"1": {
+							"name": "punctuation.separator.parameters.driplane"
+						},
+						"2": {
+							"name": "variable.parameter.function.language.driplane"
+						}
+					}
+				}
+			]
+		},
+		"filters": {
+			"name": "filter.definition.driplane",
+			"begin": "([a-zA-Z0-9-_]+)(\\()",
+			"end": "(\\))",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.function.driplane"
+				},
+				"2": {
+					"name": "punctuation.section.function.begin.driplane"
+				}
+			},
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.function.end.driplane"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#params"
+				},
+				{
+					"include": "#strings-single"
+				},
+				{
+					"include": "#strings-double"
+				}
+			]
+		},
+		"feeders": {
+			"name": "feeder.definition.driplane",
+			"begin": "(<)([a-zA-Z_-]+)(:)",
+			"end": ">",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.section.feeder.begin.driplane"
+				},
+				"2": {
+					"name": "entity.name.function.driplane"
+				},
+				"3": {
+					"name": "punctuation.section.parameters.begin.python"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.function.end.driplane"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#params"
+				},
+				{
+					"include": "#strings-single"
+				},
+				{
+					"include": "#strings-double"
+				}
+			]
+		}
+		
+	},
+	"scopeName": "source.rule"
+}

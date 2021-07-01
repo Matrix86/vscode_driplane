@@ -1,0 +1,28 @@
+{
+    "name": "driplane",
+    "displayName": "Driplane",
+    "description": "Syntax highlight for Driplane's rule files",
+    "version": "0.0.1",
+    "publisher": "Matrix86",
+    "icon": "logo.png",
+    "repository": {"url": "https://github.com/Matrix86/vscode_driplane"},
+    "engines": {
+        "vscode": "^1.57.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "driplane",
+            "aliases": ["driplane", "driplane"],
+            "extensions": [".rule"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "driplane",
+            "scopeName": "source.rule",
+            "path": "./syntaxes/driplane.tmLanguage.json"
+        }]
+    }
+}
