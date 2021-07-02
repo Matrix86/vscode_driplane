@@ -2,7 +2,7 @@
     "name": "driplane",
     "displayName": "Driplane",
     "description": "Syntax highlight for Driplane's rule files",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "Matrix86",
     "icon": "logo.png",
     "repository": {"url": "https://github.com/Matrix86/vscode_driplane"},
