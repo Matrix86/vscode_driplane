@@ -1,0 +1,9 @@
+#!/usr/bin/env stork -f
+
+git:changelog
+
+version:parser "\"[Vv]ersion\".*:.*\"([0-9.]+)\""
+version:file "package.json"
+version:from_user
+
+git:create_tag $VERSION
