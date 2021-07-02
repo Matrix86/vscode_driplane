@@ -1,4 +1,4 @@
-# Driplane's Rule Syntax Highlight [![](http://vsmarketplacebadge.apphb.com/version/Matrix86.driplane.svg)](hhttps://marketplace.visualstudio.com/items?itemName=Matrix86.driplane)
+# Driplane's Rule Syntax Highlight [![](https://vsmarketplacebadge.apphb.com/version/Matrix86.driplane.svg)](hhttps://marketplace.visualstudio.com/items?itemName=Matrix86.driplane)
 
 
 This extension adds the syntax highlight support for the Driplane's rule files on VSCode. 
